@@ -6,43 +6,63 @@ const styles = `
         margin: 0;
         padding: 0;
     }
-    h1 {
+    h1, h2 {
         text-align: center;
         color: #333;
     }
-    .mochilas-container {
+    p {
+        text-align: center;
+        color: #555;
+    }
+    #categorias {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        padding: 20px;
+        margin: 20px;
     }
-    .mochila-card {
+    .categoria-card {
         background-color: white;
         border: 1px solid #ddd;
         border-radius: 5px;
         margin: 10px;
         padding: 20px;
-        width: 300px;
         text-align: center;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        width: 150px;
+        cursor: pointer;
     }
-    .mochila-card img {
+    #productosContainer {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+    .producto-card {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        width: 200px;
+    }
+    .producto-card img {
         max-width: 100%;
         border-radius: 5px;
     }
-    .mochila-card h2 {
-        color: #258FCA;
-        font-size: 20px;
-        margin-bottom: 10px;
+    button {
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: #258FCA;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
     }
-    .mochila-card p {
-        font-size: 16px;
-        color: #555;
-    }
-    .mochila-card .precio {
-        font-weight: bold;
-        font-size: 18px;
-        color: #A9B5C3;
+    button:hover {
+        background-color: #1e70a0;
     }
 `;
 
