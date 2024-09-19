@@ -1,50 +1,59 @@
-// Función para renderizar la descripción de la empresa
-function renderDescripcion() {
-    const appDiv = document.getElementById('app');
-    appDiv.innerHTML = `<h1>Venta de Mochilas</h1>
-                        <div class="descripcion">${descripcionEmpresa}</div>
-                        <h2>Selecciona una categoría:</h2>`;
-    
-    const categoriasContainer = document.createElement('div');
-    categoriasContainer.className = 'categorias-container';
+// Función para renderizar las categorías
+function renderCategorias() {
+    const categoriasDiv = document.getElementById('categorias');
 
-    for (const categoria in categorias) {
-        const categoriaDiv = document.createElement('div');
-        categoriaDiv.className = 'categoria';
-        categoriaDiv.innerText = categoria.charAt(0).toUpperCase() + categoria.slice(1); // Capitaliza el nombre de la categoría
+    categorias.forEach(categoria => {
+        const categoriaCard = document.createElement('div');
+        categoriaCard.className = 'categoria-card';
+        categoriaCard.innerHTML = `
+            <h3>${categoria.nombre}</h3>
+        `;
+        categoriaCard.onclick = () => mostrarProductos(categoria.id);
 
-        categoriaDiv.onclick = () => {
-            renderImagenes(categoria);
-        };
-
-        categoriasContainer.appendChild(categoriaDiv);
-    }
-
-    appDiv.appendChild(categoriasContainer);
+        categoriasDiv.appendChild(categoriaCard);
+    });
 }
 
-// Función para renderizar imágenes de una categoría seleccionada
-function renderImagenes(categoria) {
-    const appDiv = document.getElementById('app');
-    appDiv.innerHTML = `<h1>${categoria.charAt(0).toUpperCase() + categoria.slice(1)}</h1>`;
+// Función para mostrar los productos de una categoría seleccionada
+function mostrarProductos(categoriaId) {
+    const inicioDiv = document.getElementById('inicio');
+    const productosDiv = document.getElementById('productos');
+    const productosContainer = document.getElementById('productosContainer');
+    const tituloCategoria = document.getElementById('tituloCategoria');
 
-    const imagenesContainer = document.createElement('div');
-    imagenesContainer.className = 'imagenes-container';
+    // Ocultar la sección de inicio
+    inicioDiv.style.display = 'none';
 
-    categorias[categoria].forEach(item => {
-        const imagenCard = document.createElement('div');
-        imagenCard.className = 'imagen-card';
-        imagenCard.innerHTML = `
-            <img src="${item.imagen}" alt="${item.nombre}">
-            <h2>${item.nombre}</h2>
-            <a href="${item.whatsapp}" target="_blank">Consultar por WhatsApp</a>
+    // Mostrar la sección de productos
+    productosDiv.style.display = 'block';
+    productosContainer.innerHTML = ''; // Limpiar los productos anteriores
+    tituloCategoria.innerText = categorias.find(c => c.id === categoriaId).nombre; // Setear el título
+
+    // Renderizar productos de la categoría seleccionada
+    productos[categoriaId].forEach(producto => {
+        const productoCard = document.createElement('div');
+        productoCard.className = 'producto-card';
+        productoCard.innerHTML = `
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <h3>${producto.nombre}</h3>
+            <a href="${producto.whatsapp}" target="_blank">Consultar por WhatsApp</a>
         `;
 
-        imagenesContainer.appendChild(imagenCard);
+        productosContainer.appendChild(productoCard);
     });
-
-    appDiv.appendChild(imagenesContainer);
 }
+
+// Función para volver a la pantalla de categorías
+function volverACategorias() {
+    const inicioDiv = document.getElementById('inicio');
+    const productosDiv = document.getElementById('productos');
+
+    productosDiv.style.display = 'none';
+    inicioDiv.style.display = 'block';
+}
+
+// Asociar el botón "volver" a la función volverACategorias
+document.getElementById('volver').onclick = volverACategorias;
 
 // Función para manejar el icono de carga
 function showLoader() {
@@ -63,6 +72,6 @@ window.onload = function() {
     setTimeout(() => {
         hideLoader(); // Ocultar el icono de carga
         document.getElementById('app').style.display = 'block'; // Mostrar el contenido
-        renderDescripcion(); // Renderizar la descripción
+        renderCategorias(); // Renderizar las categorías
     }, 2000); // 2 segundos de espera para simular la carga
 };

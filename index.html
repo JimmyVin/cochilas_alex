@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venta de Mochilas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="loader" class="loader"></div> <!-- Icono de carga -->
-    <div id="app" style="display:none;"></div> <!-- El contenido se ocultará hasta que termine de cargar -->
+    <div id="loader" class="loader">Cargando...</div>
+    <div id="app" style="display: none;">
+        <div id="inicio">
+            <h1>Bienvenidos a nuestra tienda de mochilas</h1>
+            <p>Ofrecemos mochilas de calidad, confeccionadas a mano y personalizadas para tus necesidades.</p>
+            <h2>Selecciona una categoría:</h2>
+            <div id="categorias" class="categorias-container"></div>
+        </div>
 
-    <!-- Cargar los archivos JS -->
+        <div id="productos" style="display: none;">
+            <h2 id="tituloCategoria"></h2>
+            <div id="productosContainer" class="productos-container"></div>
+            <button id="volver">Volver a Categorías</button>
+        </div>
+    </div>
+
     <script src="data.js"></script>
     <script src="styles.js"></script>
     <script src="app.js"></script>

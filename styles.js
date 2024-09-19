@@ -1,5 +1,8 @@
 // Crear estilos CSS dinámicamente
 const styles = `
+    #inicio {
+        text-align: justify;
+    }
     body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
@@ -10,65 +13,63 @@ const styles = `
         text-align: center;
         color: #333;
     }
-    .descripcion {
-        padding: 20px;
+    p {
         text-align: center;
-        font-size: 18px;
         color: #555;
     }
-    .categorias-container {
+    #categorias {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        padding: 20px;
+        margin: 20px;
     }
-    .categoria {
+    .categoria-card {
         background-color: white;
         border: 1px solid #ddd;
         border-radius: 5px;
         margin: 10px;
         padding: 20px;
-        width: 200px;
         text-align: center;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        width: 150px;
         cursor: pointer;
+        transition: box-shadow 0.3s;
     }
-    .categoria:hover {
-        background-color: #eaeaea;
+    .categoria-card:hover {
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-    .imagenes-container {
+    #productosContainer {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
+        flex-wrap: wrap;
         padding: 20px;
     }
-    .imagen-card {
+    .producto-card {
         background-color: white;
         border: 1px solid #ddd;
         border-radius: 5px;
         margin: 10px;
-        padding: 10px;
+        padding: 20px;
         text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        width: 200px;
     }
-    .imagen-card img {
+    .producto-card img {
         max-width: 100%;
         border-radius: 5px;
     }
-    .loader {
-        border: 16px solid #f3f3f3;
-        border-top: 16px solid #3498db;
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        animation: spin 2s linear infinite;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    button {
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: #258FCA;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
     }
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+    button:hover {
+        background-color: #1e70a0;
     }
 `;
 
