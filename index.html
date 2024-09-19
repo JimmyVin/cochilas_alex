@@ -3,23 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venta de Mochilas y Productos</title>
+    <title>Venta de Mochilas</title>
 </head>
 <body>
-    <!-- Sección inicial de la empresa -->
-    <div id="inicio">
-        <h1>Bienvenido a Nuestra Empresa</h1>
-        <p>Nos especializamos en la confección de mochilas, cartucheras, porta ternos y más. Nuestros productos están hechos con los más altos estándares de calidad.</p>
-        <p>Selecciona una categoría para explorar nuestros productos:</p>
-        <div id="categorias"></div>
-    </div>
+    <div id="loader" class="loader"></div> <!-- Icono de carga -->
+    <div id="app" style="display:none;"></div> <!-- El contenido se ocultará hasta que termine de cargar -->
 
-    <!-- Contenedor para las imágenes de productos -->
-    <div id="productos" style="display:none;">
-        <button id="volver">Volver a Categorías</button>
-        <div id="productosContainer"></div>
-    </div>
-
+    <!-- Cargar los archivos JS -->
     <script src="data.js"></script>
     <script src="styles.js"></script>
     <script src="app.js"></script>
