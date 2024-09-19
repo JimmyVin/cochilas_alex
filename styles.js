@@ -1,5 +1,8 @@
 // Crear estilos CSS dinámicamente
 const styles = `
+    #inicio {
+        text-align: justify;
+    }
     body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;

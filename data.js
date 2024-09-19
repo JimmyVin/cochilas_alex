@@ -24,7 +24,7 @@ const productos = {
         { nombre: "Mochila Niños 2", imagen: "https://example.com/ninios2.jpg" }
     ],
     cartucheras: [
-        { nombre: "Cartuchera 1", imagen: "https://example.com/cartuchera1.jpg" },
+        { nombre: "Cartuchera 1",precio:66, imagen: "https://example.com/cartuchera1.jpg" },
         { nombre: "Cartuchera 2", imagen: "https://example.com/cartuchera2.jpg" }
     ],
     // Continúa agregando productos para cada categoría
